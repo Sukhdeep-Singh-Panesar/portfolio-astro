@@ -1,6 +1,6 @@
 # Sukhdeep Singh's Portfolio made using Astro
 
-## 🚀 Project Structure (mainly but not always same)
+## 🚀 Project Structure
 
 ```text
 /
