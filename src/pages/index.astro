@@ -1,13 +1,22 @@
-
 ---
-import '../styles/global.css'; // add tailwind import
-import Welcome from '../components/Welcome.astro';
+import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
+
 <Layout>
-    <Welcome />
-    <h1>Sukhdeep Singh's portfolio</h1>
+    <main class="min-h-screen bg-slate-950 text-white">
+        <section class="mx-auto max-w-6xl px-6 py-24">
+            <h1 class="text-4xl font-bold">
+                Sukhdeep Singh Panesar
+            </h1>
+
+            <p class="mt-4 text-lg text-slate-300">
+                Applied Computer Science Student | Web Developer
+            </p>
+
+            <p class="mt-6 text-slate-400">
+                Welcome to my developer portfolio.
+            </p>
+        </section>
+    </main>
 </Layout>
