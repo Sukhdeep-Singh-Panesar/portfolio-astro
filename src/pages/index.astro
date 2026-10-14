@@ -1,13 +1,20 @@
 ---
 import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
 ---
 
 <Layout>
+
     <main class="min-h-screen bg-slate-950 text-white">
         <header class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+
             <a href="/" class="text-xl font-bold tracking-tight">
                 Sukhdeep<span class="text-indigo-400">.</span>
+            </a>
+
+            <a href="#projects" class="text-sm font-medium">
+                Projects
             </a>
 
             <a
@@ -16,21 +23,18 @@ import Layout from '../layouts/Layout.astro';
                     rel="noopener noreferrer"
                     class="rounded-lg border border-slate-700 px-4 py-2 text-sm font-medium transition-colors hover:border-indigo-400 hover:text-indigo-400"
             >
-                View GitHub ↗
+                View GitHub
             </a>
         </header>
-        <section class="mx-auto max-w-6xl px-6 py-24">
-            <h1 class="text-4xl font-bold">
-                Sukhdeep Singh Panesar
-            </h1>
-
-            <p class="mt-4 text-lg text-slate-300">
-                Applied Computer Science Student | Web Developer
+        <Hero />
+        <section id="projects" class="mx-auto max-w-6xl px-6 py-24">
+            <p class="text-sm font-semibold uppercase tracking-widest text-indigo-400">
+                Selected Work
             </p>
 
-            <p class="mt-6 text-slate-400">
-                Welcome to my developer portfolio.
-            </p>
+            <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                Projects I've Built
+            </h2>
         </section>
     </main>
 </Layout>
