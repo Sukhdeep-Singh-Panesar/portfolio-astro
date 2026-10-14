@@ -1,0 +1,104 @@
+---
+import ProjectCard from './ProjectCard.astro';
+type PortfolioProject = {
+    title: string;
+    description: string;
+    image?: string;
+    imageAlt?: string;
+    technologies: string[];
+    githubUrl?: string;
+    liveUrl?: string;
+    status: "completed" | "in-development";
+    priority: number;
+};
+
+const projects: PortfolioProject[] = [
+    {
+        title: "TaskHub",
+        description: "A responsive task management application featuring task filtering, persistent browser storage, calendar integration, and real-time progress tracking.",
+        image: "/images/taskhub-dashboard.png",
+        imageAlt: "TaskHub task management dashboard screenshot",
+        technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+        githubUrl: "https://github.com/Sukhdeep-Singh-Panesar/TaskHub",
+        liveUrl: "https://to-do-list-app-rust-five.vercel.app/",
+        status: "completed",
+        priority: 1
+    },
+    {
+        title: "PChat",
+        description: "A messaging platform under development using a Next.js frontend, NestJS backend, and PostgreSQL.",
+        image: "/images/pchat-preview.svg",
+        imageAlt: "PChat messaging platform concept illustration",
+        technologies: ["Next.js", "NestJS", "TypeScript", "PostgreSQL"],
+        githubUrl: "https://github.com/Sukhdeep-Singh-Panesar/pchat",
+        status: "in-development",
+        priority: 2
+    },
+    {
+        title: "Dashboard",
+        description: "A modern dashboard interface built with reusable React components, responsive layouts, and data visualization libraries.",
+        technologies: ["React", "TypeScript", "Tailwind CSS", "Recharts", "shadcn/ui"],
+        status: "in-development",
+        priority: 3
+    },
+    {
+        title: "P Music App",
+        description: "A music application frontend built with Next.js, React, TypeScript, and Tailwind CSS.",
+        technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+        status: "in-development",
+        priority: 4
+    },
+    {
+        title: "Note-Taking App",
+        description: "A web application for creating, editing, deleting, and organizing notes using Node.js and Express.",
+        technologies: ["JavaScript", "Node.js", "Express", "HTML", "CSS"],
+        status: "in-development",
+        priority: 5
+    },
+    {
+        title: "P Music Flutter",
+        description: "An early-stage project exploring a cross-platform music application with Flutter.",
+        technologies: ["Flutter (planned)", "Dart (planned)"],
+        status: "in-development",
+        priority: 6
+    }
+];
+
+const sortedProjects = [...projects].sort(
+    (a, b) => {
+        if (a.status === "completed" && b.status === "in-development") {
+            return -1;
+        }
+        if (a.status === "in-development" && b.status === "completed") {
+            return 1;
+        }
+        return a.priority - b.priority;
+    });
+
+---
+<section id="projects" class="scroll-mt-24 mx-auto max-w-6xl px-6 py-24">
+    <p class="text-sm font-semibold uppercase tracking-widest text-indigo-400">
+        Selected Work
+    </p>
+
+    <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+        Projects I've Built
+    </h2>
+
+    <div class="mt-12 grid gap-8">
+        {sortedProjects.map((project) => (
+            <ProjectCard
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                technologies={project.technologies}
+                githubUrl={project.githubUrl}
+                liveUrl={project.liveUrl}
+                status={project.status}
+                imageAlt={project.imageAlt}
+            />
+        ))
+        }
+    </div>
+
+</section>
