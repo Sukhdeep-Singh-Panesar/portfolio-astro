@@ -1,0 +1,91 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    image: string;
+    technologies: string[];
+    githubUrl: string;
+    liveUrl?: string;
+}
+
+const {
+    title,
+    description,
+    image,
+    technologies,
+    githubUrl,
+    liveUrl
+} = Astro.props;
+---
+
+<article class="group grid overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 transition-colors duration-300 hover:border-indigo-400/40 lg:grid-cols-2">
+
+    <!-- Project screenshot -->
+    <div class="flex items-center bg-slate-950 p-5 sm:p-8">
+        <img
+                src={image}
+                alt={`${title} application screenshot`}
+                loading="lazy"
+                class="w-full rounded-xl border border-white/10 shadow-2xl"
+        />
+    </div>
+
+    <!-- Project details -->
+    <div class="flex flex-col justify-center p-6 sm:p-10">
+
+        <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-indigo-400">
+            Featured Project
+        </p>
+
+        <h3 class="text-3xl font-bold tracking-tight text-white">
+            {title}
+        </h3>
+
+        <p class="mt-5 text-base leading-7 text-slate-400">
+            {description}
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+            {technologies.map((technology) => (
+                    <span class="rounded-lg border border-slate-700 bg-slate-800/70 px-3 py-1.5 text-xs font-medium text-slate-300">
+                    {technology}
+                </span>
+            ))}
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center gap-6">
+            <a
+                    href={githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-400 transition-colors hover:text-indigo-300"
+            >
+                Source Code
+                <img
+                        src="/icons/up-right-arrow.svg"
+                        alt=""
+                        aria-hidden="true"
+                        class="h-4 w-4"
+                />
+            </a>
+
+            {liveUrl && (
+                    <a
+                            href={liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-400 transition-colors hover:text-indigo-300"
+                    >
+                        Live Demo
+                        <img
+                                src="/icons/up-right-arrow.svg"
+                                alt=""
+                                aria-hidden="true"
+                                class="h-4 w-4"
+                        />
+                    </a>
+            )}
+        </div>
+
+    </div>
+</article>
