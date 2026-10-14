@@ -7,17 +7,33 @@ const projects = [
         image: "/images/taskhub-dashboard.png",
         technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
         githubUrl: "https://github.com/Sukhdeep-Singh-Panesar/TaskHub",
-        liveUrl: "https://to-do-list-app-rust-five.vercel.app/"
+        liveUrl: "https://to-do-list-app-rust-five.vercel.app/",
+        status: "completed" as const,
+        priority: 1
     },
     {
         title: "PChat",
-        description: "A real-time chat application built with React, TypeScript, and Firebase, featuring user authentication and message persistence.",
+        description: "A messaging platform under development using Next.js, NestJS, TypeScript, and PostgreSQL.",
         image: "/images/pchat-preview.svg",
-        technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS"],
-        githubUrl: "https://github.com/Sukhdeep-Singh-Panesar/PChat",
-        liveUrl: ""
+        technologies: ["Next.js", "NestJS", "TypeScript", "PostgreSQL"],
+        githubUrl: "https://github.com/Sukhdeep-Singh-Panesar/pchat",
+        liveUrl: "",
+        status: "in-development" as const,
+        priority: 2
     }
 ];
+
+const sortedProjects = [...projects].sort(
+    (a, b) => {
+        if (a.status === "completed" && b.status === "in-development") {
+            return -1;
+        }
+        if (a.status === "in-development" && b.status === "completed") {
+            return 1;
+        }
+        return a.priority - b.priority;
+    });
+
 ---
 <section id="projects" class="scroll-mt-24 mx-auto max-w-6xl px-6 py-24">
     <p class="text-sm font-semibold uppercase tracking-widest text-indigo-400">
@@ -29,7 +45,7 @@ const projects = [
     </h2>
 
     <div class="mt-12 grid gap-8">
-        {projects.map((project) => (
+        {sortedProjects.map((project) => (
             <ProjectCard
                 title={project.title}
                 description={project.description}
@@ -37,6 +53,7 @@ const projects = [
                 technologies={project.technologies}
                 githubUrl={project.githubUrl}
                 liveUrl={project.liveUrl}
+                status={project.status}
             />
         ))
         }
