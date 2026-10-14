@@ -2,9 +2,10 @@
 interface Props {
     title: string;
     description: string;
-    image: string;
     technologies: string[];
-    githubUrl: string;
+    image?: string;
+    imageAlt?: string;
+    githubUrl?: string;
     liveUrl?: string;
     status: "completed" | "in-development";
 }
@@ -16,7 +17,8 @@ const {
     technologies,
     githubUrl,
     liveUrl,
-    status
+    status,
+    imageAlt
 } = Astro.props;
 ---
 
@@ -24,12 +26,23 @@ const {
 
     <!-- Project screenshot -->
     <div class="flex items-center bg-slate-950 p-5 sm:p-8">
-        <img
-                src={image}
-                alt={`${title} application screenshot`}
-                loading="lazy"
-                class="w-full rounded-xl border border-white/10 shadow-2xl"
-        />
+        {image ? (
+                <img
+                        src={image}
+                        alt={imageAlt ?? `${title} project preview`}
+                        loading="lazy"
+                        class="w-full rounded-xl border border-white/10 shadow-2xl"
+                />
+        ) : (
+                <div class="flex aspect-[16/10] w-full flex-col items-center justify-center gap-3 rounded-xl border border-indigo-400/20 bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 text-center">
+        <span class="text-2xl font-semibold text-white">
+            {title}
+        </span>
+                    <span class="text-xs uppercase tracking-widest text-slate-400">
+            Preview Coming Soon
+        </span>
+                </div>
+        )}
     </div>
 
     <!-- Project details -->
@@ -60,20 +73,22 @@ const {
         </div>
 
         <div class="mt-8 flex flex-wrap items-center gap-6">
-            <a
-                    href={githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-400 transition-colors hover:text-indigo-300"
-            >
-                Source Code
-                <img
-                        src="/icons/up-right-arrow.svg"
-                        alt=""
-                        aria-hidden="true"
-                        class="h-4 w-4"
-                />
-            </a>
+            {githubUrl && (
+                    <a
+                            href={githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-400 transition-colors hover:text-indigo-300"
+                    >
+                        Source Code
+                        <img
+                                src="/icons/up-right-arrow.svg"
+                                alt=""
+                                aria-hidden="true"
+                                class="h-4 w-4"
+                        />
+                    </a>
+            )}
 
             {liveUrl && (
                     <a
@@ -85,10 +100,7 @@ const {
                         Live Demo
                         <img
                                 src="/icons/up-right-arrow.svg"
-                                alt={status === "completed"
-                                    ? `${title} application screenshot`
-                                    : `${title} project concept illustration`
-                                }
+                                alt=""
                                 aria-hidden="true"
                                 class="h-4 w-4"
                         />
