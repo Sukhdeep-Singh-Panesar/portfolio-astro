@@ -35,7 +35,11 @@ const {
     <!-- Project details -->
     <div class="flex flex-col justify-center p-6 sm:p-10">
 
-        <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-indigo-400">
+        <p class={`mb-4 w-fit rounded-full border px-3 py-1.5 text-xs font-semibold ${
+            status === "completed"
+                ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
+                : "border-amber-500/30 bg-amber-500/10 text-amber-400"
+        }`}>
             {status === "completed" ? "Completed" : "In Development"}
         </p>
 
@@ -81,7 +85,10 @@ const {
                         Live Demo
                         <img
                                 src="/icons/up-right-arrow.svg"
-                                alt=""
+                                alt={status === "completed"
+                                    ? `${title} application screenshot`
+                                    : `${title} project concept illustration`
+                                }
                                 aria-hidden="true"
                                 class="h-4 w-4"
                         />
