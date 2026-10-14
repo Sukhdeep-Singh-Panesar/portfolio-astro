@@ -2,37 +2,17 @@
 import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import Navbar from '../components/Navbar.astro';
 ---
 
 <Layout>
 
     <main class="min-h-screen bg-slate-950 text-white">
-        <header class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
 
-            <a href="/" class="text-xl font-bold tracking-tight">
-                Sukhdeep<span class="text-indigo-400">.</span>
-            </a>
+        <Navbar />
 
-            <a href="#projects" class="text-sm font-medium">
-                Projects
-            </a>
-
-            <a
-                    href="https://github.com/Sukhdeep-Singh-Panesar"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex gap-2 items-center rounded-lg border border-slate-700 px-4 py-2 text-sm font-medium transition-colors hover:border-indigo-400 hover:text-indigo-400"
-            >
-                View GitHub <img
-                    src="/icons/up-right-arrow.svg"
-                    alt=""
-                    aria-hidden="true"
-                    class="h-4 w-4"
-            />
-            </a>
-        </header>
         <Hero />
-        <section id="projects" class="mx-auto max-w-6xl px-6 py-24">
+        <section id="projects" class="scroll-mt-24 mx-auto max-w-6xl px-6 py-24">
             <p class="text-sm font-semibold uppercase tracking-widest text-indigo-400">
                 Selected Work
             </p>
