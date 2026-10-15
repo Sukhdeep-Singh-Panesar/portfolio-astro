@@ -1,0 +1,57 @@
+---
+const skillCategories = [
+    {
+        title: "Frontend Development",
+        skills: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Tailwind CSS", "Astro"]
+    },
+    {
+        title: "Backend & Databases",
+        skills: ["Java", "Node.js", "Express", "PostgreSQL"]
+    },
+    {
+        title: "Developer Tools",
+        skills: ["Git", "GitHub", "VS Code", "Figma", "JetBrains IDEs"]
+    },
+    {
+        title: "Currently Learning",
+        skills: ["Next.js", "NestJS", "Docker", "Cloud Deployment"]
+    }
+];
+---
+<section id="skills" class="scroll-mt-24 mx-auto max-w-6xl px-6 py-24">
+    <p class="text-sm font-semibold uppercase tracking-widest text-indigo-400">
+        Technical Skills
+    </p>
+
+    <h2 class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        Technologies I Work With.
+    </h2>
+
+    <p class="mt-6 max-w-2xl text-slate-400">
+        Technologies and tools I've used while building applications
+        and developing my software engineering skills.
+    </p>
+
+    <!-- Skill cards -->
+
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+        {skillCategories.map((category) => {
+            return (
+                    <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-400/40">
+                        <h3 class="text-lg font-semibold text-white">
+                            {category.title}
+                        </h3>
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            {category.skills.map((skill) => (
+                                    <span class="rounded-lg border border-slate-700 bg-slate-800/70 px-3 py-2 text-sm font-medium text-slate-300">
+                                {skill}
+                            </span>
+                            ))}
+                        </div>
+                    </div>
+            );
+        })}
+    </div>
+
+</section>
+
