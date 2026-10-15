@@ -6,11 +6,13 @@ import Navbar from '../components/Navbar.astro';
 import Projects from '../components/Projects.astro';
 import About from '../components/About.astro';
 import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
 
-    <main class="min-h-screen bg-slate-950 text-white">
+    <main id="top" class="min-h-screen bg-slate-950 text-white">
 
         <Navbar />
 
@@ -21,5 +23,11 @@ import Skills from '../components/Skills.astro';
         <About />
 
         <Skills />
+
+        <Contact />
+
     </main>
+
+    <Footer />
+
 </Layout>
