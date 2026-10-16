@@ -69,47 +69,79 @@
                 </div>
 
                 <!-- Actual TaskHub screenshot -->
-                <img
-                        src="/images/taskhub-dashboard.png"
-                        alt=""
-                        class="block w-full"
-                />
-
-            </div>
-        </div>
-    </div>
-
-    <div class="relative mx-auto max-w-6xl px-6 pb-16 lg:pb-24">
-        <div class="group grid overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 shadow-2xl shadow-indigo-950/30 transition-colors duration-300 hover:border-indigo-400/40 lg:grid-cols-2">
-
-            <!-- Left: TaskHub Screenshot -->
-            <div class="flex items-center bg-slate-950 p-5 sm:p-8">
-                <div class="w-full overflow-hidden rounded-xl border border-slate-700 bg-slate-900">
-
-                    <div class="flex items-center gap-2 border-b border-white/10 px-4 py-3">
-                        <span class="h-2.5 w-2.5 rounded-full bg-rose-400"></span>
-                        <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
-                        <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
-
-                        <span class="ml-3 text-xs text-slate-400">
-                    TaskHub — Dashboard
-                </span>
-                    </div>
+                <!-- Left: TaskHub Screenshot -->
+                <div class="relative aspect-[16/10] overflow-hidden bg-slate-950 lg:aspect-auto lg:min-h-[320px]">
 
                     <img
                             src="/images/taskhub-dashboard.png"
                             alt="TaskHub task management dashboard"
                             loading="lazy"
-                            class="max-h-80 w-full object-contain"
+                            class="absolute inset-0 h-full w-full object-cover object-top"
                     />
+
                 </div>
+
             </div>
+        </div>
+    </div>
+
+   <div class="relative mx-auto max-w-6xl px-6 pb-16 lg:pb-24">
+
+            <p class="mb-5 text-xs font-semibold uppercase tracking-widest text-indigo-400">
+                Featured Work
+            </p>
+
+       <!-- Outer Featured Work card -->
+       <div class="group relative grid overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 pt-10 shadow-2xl shadow-indigo-950/30 transition-colors duration-300 hover:border-indigo-400/40 lg:grid-cols-2">
+           <!-- Three decorative dots -->
+           <div
+                   aria-hidden="true"
+                   class="absolute left-5 top-4 z-10 flex items-center gap-2.5"
+           >
+               <span class="h-3 w-3 rounded-full bg-rose-400"></span>
+               <span class="h-3 w-3 rounded-full bg-amber-400"></span>
+               <span class="h-3 w-3 rounded-full bg-emerald-400"></span>
+           </div>
+           <span class="absolute right-5 top-4 z-10 inline-flex items-center gap-2 text-xs font-medium text-emerald-400">
+
+               <!--upper-right-->
+                    <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                        Completed
+                    </span>
+
+            <!-- Left: TaskHub Screenshot -->
+                <div class="flex items-center bg-slate-950 p-2 sm:p-3 lg:p-3">
+
+                    <div class="w-full overflow-hidden rounded-xl border border-indigo-400/25 bg-slate-900 shadow-[0_-8px_30px_-14px_rgba(99,102,241,0.6)]">
+
+                        <!-- Browser title bar -->
+                        <div class="flex items-center gap-2 border-b border-indigo-400/20 bg-slate-950 px-4 py-3">
+                            <span class="h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+                            <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+
+                            <span class="ml-3 text-xs text-slate-400">
+                                TaskHub — Dashboard
+                            </span>
+                        </div>
+
+                        <!-- Actual screenshot -->
+                        <img
+                                src="/images/taskhub-dashboard.png"
+                                alt="TaskHub task management dashboard"
+                                loading="lazy"
+                                class="block h-auto w-full"
+                        />
+
+                    </div>
+                </div>
+
 
             <!-- Right: Project Details -->
             <div class="flex flex-col justify-center p-6 sm:p-10">
 
                 <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-indigo-400">
-                    Featured Work / 01
+                    Featured Project / 01
                 </p>
 
                 <h2 class="text-3xl font-bold tracking-tight text-white">
@@ -147,7 +179,8 @@
                                 href="https://github.com/Sukhdeep-Singh-Panesar/TaskHub"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-400"                        >
+                                class="inline-flex items-center gap-2 rounded-lg border border-slate-600 bg-slate-900/60 px-5 py-3 text-sm font-semibold text-slate-200 transition-all duration-300 hover:border-indigo-400 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                            >
                             View Source Code
                             <img
                                     src="/icons/up-right-arrow.svg"
@@ -161,5 +194,4 @@
                     </div>
             </div>
         </div>
-
 </section>
