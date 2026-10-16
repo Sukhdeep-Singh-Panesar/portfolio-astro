@@ -55,7 +55,7 @@
         </nav>
 
         <!-- Mobile navigation -->
-        <details class="relative md:hidden">
+        <details id="mobile-menu" class="relative md:hidden">
             <summary
                     class="flex cursor-pointer list-none items-center rounded-lg border border-slate-700 p-3"
             >
@@ -112,3 +112,12 @@
         </details>
     </div>
 </header>
+<script>
+    const mobileMenu = document.querySelector<HTMLDetailsElement>('#mobile-menu');
+
+    mobileMenu?.querySelectorAll('nav a').forEach((link) => {
+        link.addEventListener('click', () => {
+            mobileMenu.open = false;
+        });
+    });
+</script>
