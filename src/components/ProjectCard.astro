@@ -24,16 +24,16 @@ const {
 
 <article class="group flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 transition-colors duration-300 hover:border-indigo-400/40">
     <!-- Project screenshot -->
-    <div class="flex items-center bg-slate-950 p-5 sm:p-8">
+    <div class="flex aspect-[16/10] w-full items-center overflow-hidden bg-slate-950 p-4 sm:p-5">
         {image ? (
                 <img
                         src={image}
                         alt={imageAlt ?? `${title} project preview`}
                         loading="lazy"
-                        class="w-full rounded-xl border border-white/10 shadow-2xl"
+                        class="h-full w-full rounded-xl border border-white/10 object-contain shadow-2xl"
                 />
         ) : (
-                <div class="flex aspect-[16/10] w-full flex-col items-center justify-center gap-3 rounded-xl border border-indigo-400/20 bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 text-center">
+                <div class="flex h-full w-full flex-col items-center justify-center gap-3 rounded-xl border border-indigo-400/20 bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 text-center">
         <span class="text-2xl font-semibold text-white">
             {title}
         </span>
