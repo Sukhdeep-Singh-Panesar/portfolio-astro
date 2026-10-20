@@ -45,7 +45,7 @@ const {
     </div>
 
     <!-- Project details -->
-    <div class="flex flex-col justify-center p-6 sm:p-7">
+    <div class="flex flex-1 flex-col p-6 sm:p-7">
 
         <p class={`mb-4 w-fit rounded-full border px-3 py-1.5 text-xs font-semibold ${
             status === "completed"
@@ -71,7 +71,8 @@ const {
             ))}
         </div>
 
-        <div class="mt-8 flex flex-wrap items-center gap-6">
+        {(githubUrl || liveUrl) && (
+                <div class="mt-auto flex flex-wrap items-center gap-6 pt-8">
             {githubUrl && (
                     <a
                             href={githubUrl}
@@ -106,6 +107,7 @@ const {
                     </a>
             )}
         </div>
+        )}
 
     </div>
 </article>
