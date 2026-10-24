@@ -22,19 +22,18 @@ const {
 } = Astro.props;
 ---
 
-<article class="group grid overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 transition-colors duration-300 hover:border-indigo-400/40 lg:grid-cols-2">
-
+<article class="group flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 transition-colors duration-300 hover:border-indigo-400/40">
     <!-- Project screenshot -->
-    <div class="flex items-center bg-slate-950 p-5 sm:p-8">
+    <div class="flex aspect-[16/10] w-full items-center overflow-hidden bg-slate-950 p-4 sm:p-5">
         {image ? (
                 <img
                         src={image}
                         alt={imageAlt ?? `${title} project preview`}
                         loading="lazy"
-                        class="w-full rounded-xl border border-white/10 shadow-2xl"
+                        class="h-full w-full rounded-xl border border-white/10 object-contain shadow-2xl"
                 />
         ) : (
-                <div class="flex aspect-[16/10] w-full flex-col items-center justify-center gap-3 rounded-xl border border-indigo-400/20 bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 text-center">
+                <div class="flex h-full w-full flex-col items-center justify-center gap-3 rounded-xl border border-indigo-400/20 bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 text-center">
         <span class="text-2xl font-semibold text-white">
             {title}
         </span>
@@ -46,7 +45,7 @@ const {
     </div>
 
     <!-- Project details -->
-    <div class="flex flex-col justify-center p-6 sm:p-10">
+    <div class="flex flex-1 flex-col p-6 sm:p-7">
 
         <p class={`mb-4 w-fit rounded-full border px-3 py-1.5 text-xs font-semibold ${
             status === "completed"
@@ -56,7 +55,7 @@ const {
             {status === "completed" ? "Completed" : "In Development"}
         </p>
 
-        <h3 class="text-3xl font-bold tracking-tight text-white">
+        <h3 class="text-2xl font-bold tracking-tight text-white">
             {title}
         </h3>
 
@@ -64,15 +63,16 @@ const {
             {description}
         </p>
 
-        <div class="mt-6 flex flex-wrap gap-2">
+        <div class="mt-5 flex flex-wrap gap-2">
             {technologies.map((technology) => (
-                    <span class="rounded-lg border border-slate-700 bg-slate-800/70 px-3 py-1.5 text-xs font-medium text-slate-300">
-                    {technology}
-                </span>
+                    <span class="rounded-md border border-slate-700/80 bg-slate-800/70 px-2.5 py-1 text-xs font-medium text-slate-300">
+            {technology}
+        </span>
             ))}
         </div>
 
-        <div class="mt-8 flex flex-wrap items-center gap-6">
+        {(githubUrl || liveUrl) && (
+                <div class="mt-auto flex flex-wrap items-center gap-6 pt-8">
             {githubUrl && (
                     <a
                             href={githubUrl}
@@ -107,6 +107,7 @@ const {
                     </a>
             )}
         </div>
+        )}
 
     </div>
 </article>
